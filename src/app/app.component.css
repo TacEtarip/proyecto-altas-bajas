@@ -1,0 +1,20 @@
+.masthead {
+  border-bottom: 1px solid hsl(0, 0%, 90%);
+  display: flex;
+  align-items: center;
+}
+
+.logo-sunarp {
+  padding: 20px;
+  padding-right: 5px;
+  min-width: 100px;
+  max-width: 200px;
+  flex: 1 0 200px;
+}
+
+.titulo {
+  display: block;
+  margin: 0;
+  flex: 1 0 200px;
+  line-height: 1.25;
+}

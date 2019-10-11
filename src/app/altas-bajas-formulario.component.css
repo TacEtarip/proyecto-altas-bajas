@@ -1,0 +1,68 @@
+.main-area {
+  padding: 1em;
+  background-color: hsla(0, 0%, 90%, 0.808);
+}
+
+.cards {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+.card {
+  display: flex;
+  margin-bottom: 1em;
+}
+
+.card div {
+  width: 100%;
+  padding: 0 1em;
+
+  text-decoration: none;
+  background: white;
+  border: 1px transparent;
+  color: hsl(0, 0%, 5%);
+  border-radius: 4px;
+}
+
+.card div section {
+  padding: 30px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+input {
+  background-color: #f5f5f5;
+  color: #000000;
+  border-radius: 2px;
+  border: none;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) inset, 0 -1px 0 rgba(0, 0, 0, 0.05) inset;
+  padding: 6px;
+  margin-right: 10px;
+}
+
+input:focus {
+  outline: none !important;
+  border: 0.5px solid rgb(68, 122, 238);
+  box-shadow: 0 0 5px rgb(154, 178, 192);
+}
+
+#nombre-usuario {
+  width: 400px;
+}
+
+#documento-identidad {
+  width: 100px;
+}
+
+label {
+  color: #4d4d4d;
+  padding-right: 10px;
+  font-weight: bold;
+}
