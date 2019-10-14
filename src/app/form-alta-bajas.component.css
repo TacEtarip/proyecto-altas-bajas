@@ -1,0 +1,75 @@
+.checkboxtext{
+  font-size: 1.1em;
+  display: inline;
+  padding-left: 10px;
+}
+header{
+  padding-left: 20px;
+}
+form{
+  font-size: 1.5em;
+  padding-left: 5px;
+}
+.escrito{
+  font-size: 0.6em;
+  margin-left: 10px;
+  width: 200px;
+}
+#directorio{
+  margin-left: 13.5px;
+}
+#servidor{
+  margin-left: 30px;
+}
+#nombre_user{
+  margin-left: 15.7px;
+}
+#cargo_user{
+  margin-left: 44.8px;
+}
+#unidad_user{
+  margin-left: 32.5px;
+}
+#nombre_jefe{
+  width: 300px;
+  margin-left: 10px;
+}
+#codigo_jefe{
+  width: 300px;
+  margin-left: 18px;
+}
+#cargo_jefe{
+  width: 300px;
+  margin-left: 30px;
+}
+.sustentos{
+  width: 800px;
+  height: 60px;
+}
+.alta_tipo_solicitud{
+  display: inline-block;
+  -ms-transform: scale(2);
+  -moz-transform: scale(2);
+  -webkit-transform: scale(2);
+  -o-transform: scale(2);
+  transform: scale(2);
+  padding: 10px;
+}
+.access_type{
+  margin-left: 40px;
+}
+.form_select{
+  font-size: 0.8em;
+  margin-left: 10px;
+  align-items: center;
+}
+.pag_web{
+  margin-left: 40px;
+  width: 300px;
+}
+.sistemasR{
+  width: 400px;
+}
+.sistemasL{
+  width: 400px;
+}

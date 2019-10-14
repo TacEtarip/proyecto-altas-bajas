@@ -1,0 +1,184 @@
+<header><h2>Formulario Altas & Bajas</h2></header>
+<form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+  <ul>
+    <li>
+      <h2>Datos del Usuario</h2>
+      <div>
+        <label for="nombre_usuario">Nombres</label>
+        <input type="text" formControlName="nombre_usuario" class="escrito" id="nombre_usuario" name="nombre_usuario">
+      </div>
+      <div>
+        <label for="apellido_usuario">Apellidos</label>
+        <input type="text" formControlName="apellido_usuario" class="escrito" id="apellido_usuario" name="apellido_usuario">
+      </div>
+      <div>
+        <label for="cargo_usuario">Cargo</label>
+        <input type="text" formControlName="cargo_usuario" class="escrito" id="cargo_usuario" name="cargo_usuario">
+      </div>
+      <div>
+        <label for="unidad_usuario">Unidad</label>
+        <input type="text" formControlName="unidad_usuario" class="escrito" id="unidad_usuario" name="unidad_usuario">
+      </div>
+    </li>
+  </ul>
+  <ul>
+    <li>
+      <label for="tipo_usuario">Tipo de Usuario</label>
+      <select formControlName="tipo_usuario" name="tipo_usuario" class="form_select" id="tipo_usuario">
+        <option value="Empleado">Empleado</option>
+        <option value="Contrato_de_Administracion_de_servicios">Contrato de Administracion de servicios</option>
+        <option value="Practicante">Practicante</option>
+        <option value="Secigrista">Secigrista</option>
+        <option value="Outsorcing/Service">Outsorcing/Service</option>
+      </select>
+    </li>
+  </ul>
+  <ul>
+    <li>
+      <label for="tipo_solicitud">Tipo de Solicitud</label>
+      <select formControlName="tipo_solicitud" name="tipo_solicitud" class="form_select" id="tipo_solicitud">
+        <option value="Creación de Usuario(Alta)">Creación de Usuario(Alta)</option>
+        <option value="Habilitación de Usuario">Habilitación de Usuario</option>
+        <option value="Inhabilitación de Usuario">Inhabilitación de Usuario</option>
+        <option value="Contrato de Administración de Servicios">Contrato de Administración de Servicios</option>
+        <option value="Actualización de Perfil">Actualización de Perfil</option>
+      </select>
+    </li>
+  </ul>
+  <ul>
+    <li>
+      <label for="motivo_solicitud">Motivo de Solicitud</label>
+      <select formControlName="motivo_solicitud" name="motivo_solicitud" class="form_select" id="motivo_solicitud">
+        <option value="Personal Nuevo">Personal Nuevo</option>
+        <option value="Rotación">Rotación</option>
+        <option value="Nuevas Funciones">Nuevas Funciones</option>
+        <option value="Reincorporación">Reincorporación</option>
+        <option value="Vacciones/Permisos/Otros">Vacciones/Permisos/Otros</option>
+        <option value="Cese">Cese</option>
+      </select>
+    </li>
+  </ul>
+  <ul>
+    <li>
+      <label for="servicio_red">Servicios de Red</label>
+      <div class="nombre">
+        <input type="checkbox" formControlName="servicio_red" class="alta_tipo_solicitud" name="servicio_red" id="servicio_red1"><span class="checkboxtext">Dominio</span>
+      </div>
+      <div class="apellido">
+        <input type="checkbox" formControlName="servicio_red2" class="alta_tipo_solicitud" name="servicio_red" id="servicio_red2"><span class="checkboxtext">Correo Electronico</span>
+      </div>
+      <div class="cargo">
+        <input type="checkbox" formControlName="servicio_red3" class="alta_tipo_solicitud" name="servicio_red" id="servicio_red3"><span class="checkboxtext">Otros</span>
+      </div>
+    </li>
+  </ul>
+  <ul>
+    <li>
+      <label for="accesos_red">Accesos Especiales a la Red</label>
+        <div>
+          <input type="checkbox" formControlName="accesos_red" class="alta_tipo_solicitud" name="accesos_red" id="accesos_red1"><span class="checkboxtext">Mensajeria Instantanea</span>
+        </div>
+        <div>
+          <input type="checkbox" formControlName="accesos_red2" class="alta_tipo_solicitud" name="accesos_red" id="accesos_red2"><span class="checkboxtext">FTP</span>
+        </div>
+        <div>
+          <input type="checkbox" formControlName="accesos_red3" class="alta_tipo_solicitud" name="accesos_red" id="accesos_red3"><span class="checkboxtext">TELNET</span>
+        </div>
+        <div>
+          <input type="checkbox" formControlName="accesos_red4" class="alta_tipo_solicitud" name="accesos_red" id="accesos_red4"><span class="checkboxtext">Acceso Remoto</span>
+        </div>
+        <div>
+          <input type="checkbox" formControlName="accesos_red5" class="alta_tipo_solicitud" name="accesos_red" id="accesos_red5"><span class="checkboxtext">Otros</span>
+        </div>
+        <div>
+          <input type="checkbox" formControlName="accesos_red6" class="alta_tipo_solicitud" name="accesos_red" id="accesos_red6"><span class="checkboxtext">Paginas Web Especiales</span>
+          <div>
+            <input type="text" formControlName="accesos_red7" class="pag_web escrito" name="accesos_red" id="accesos_red_web1">
+          </div>
+          <div>
+            <input type="text" formControlName="accesos_red8" class="pag_web escrito" name="accesos_red" id="accesos_red_web2">
+          </div>
+        </div>
+    </li>
+  </ul>
+  <ul>
+    <li>
+      <label for="accesos_sistemas_administrativos">Accesos a los Sistemas Administrativos</label>
+      <div>
+        <input type="text" formControlName="accesos_sistemas_administrativos" class="escrito sistemasR" name="accesos_sistemas_administrativos" id="accesos_sistemas_administrativos1">
+        <input type="text" formControlName="accesos_sistemas_administrativos2" class="escrito sistemasL" name="accesos_sistemas_administrativos" id="accesos_sistemas_administrativos2">
+      </div>
+      <div>
+        <input type="text" formControlName="accesos_sistemas_administrativos3" class="escrito sistemasR" name="accesos_sistemas_administrativos" id="accesos_sistemas_administrativos3">
+        <input type="text" formControlName="accesos_sistemas_administrativos4" class="escrito sistemasL" name="accesos_sistemas_administrativos" id="accesos_sistemas_administrativos4">
+      </div>
+    </li>
+  </ul>
+  <ul>
+    <li>
+      <label for="acceso_sistemas_negocio">Accesos a los Sistemas de Negocio (Registrales)</label>
+      <div>
+        <input type="text" formControlName="acceso_sistemas_negocio" class="escrito sistemasR" name="acceso_sistemas_negocio" id="acceso_sistemas_negocio1">
+        <input type="text" formControlName="acceso_sistemas_negocio2" class="escrito sistemasL" name="acceso_sistemas_negocio" id="acceso_sistemas_negocio2">
+      </div>
+      <div>
+        <input type="text" formControlName="acceso_sistemas_negocio3" class="escrito sistemasR" name="acceso_sistemas_negocio" id="acceso_sistemas_negocio3">
+        <input type="text" formControlName="acceso_sistemas_negocio4" class="escrito sistemasL" name="acceso_sistemas_negocio" id="acceso_sistemas_negocio4">
+      </div>
+    </li>
+  </ul>
+  <ul>
+    <li>
+      <h2>Accesos a Carpetas Compartidas</h2>
+      <div>
+        <label for="directorio_carpeta">Directorio</label>
+        <input type="text" formControlName="directorio_carpeta" class="escrito" id="directorio_carpeta" name="directorio_carpeta">
+      </div>
+      <div>
+        <label for="servidor_carpeta">Servidor</label>
+        <input type="text" formControlName="servidor_carpeta" class="escrito" id="servidor_carpeta" name="servidor_carpeta">
+      </div>
+      <div>
+        <label for="tipo_acceso">Tipo de Acceso</label>
+        <div>
+          <input type="checkbox" formControlName="tipo_acceso" class="alta_tipo_solicitud access_type" id="tipo_acceso" name="tipo_acceso"><span class="checkboxtext">Lectura</span>
+          <input type="checkbox" formControlName="tipo_acceso2" class="alta_tipo_solicitud access_type" id="tipo_acceso" name="tipo_acceso"><span class="checkboxtext">Escritura</span>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <ul>
+    <li>
+      <h2>Datos del Superior/Jefe</h2>
+      <div>
+        <label for="nombre_jefe_superior">Nombre</label>
+        <input type="text" formControlName="nombre_jefe_superior" class="escrito" id="nombre_jefe_superior" name="nombre_jefe_superior">
+      </div>
+      <div>
+        <label for="codigo_jefe_superior">Código</label>
+        <input type="text" formControlName="codigo_jefe_superior" class="escrito" id="codigo_jefe_superior" name="codigo_jefe_superior">
+      </div>
+      <div>
+        <label for="cargo_jefe_superior">Cargo</label>
+        <input type="text" formControlName="cargo_jefe_superior" class="escrito" id="cargo_jefe_superior" name="cargo_jefe_superior">
+      </div>
+    </li>
+  </ul>
+  <ul>
+    <li>
+      <label for="sustento_justificacion">Sustento Y/O Justificacón</label>
+      <div>
+          <textarea cols="30" rows="10" formControlName="sustento_justificacion" class="escrito sustentos" id="sustento_justificacion" name="sustento_justificacion"></textarea>
+        </div>
+    </li>
+  </ul>
+  <ul>
+    <li>
+      <label for="observaciones_detalles">Observaciones Y/O Detalles Adicionales</label>
+      <div>
+          <textarea cols="30" rows="10" formControlName="observaciones_detalles" class="escrito sustentos" id="observaciones_detalles" name="observaciones_detalles"></textarea>
+      </div>
+    </li>
+  </ul>
+  <button type="submit" [disabled]="!form.valid">Generar</button>
+</form>
