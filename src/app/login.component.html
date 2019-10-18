@@ -1,0 +1,14 @@
+<form class="bodywrap" [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+  <div class="login">
+    <h2>Iniciar Sesion</h2>
+    <div class="user">
+      <label for="user">Usuario</label>
+      <input type="text" class="usuario" formControlName="user" id="user" name="user">
+    </div>
+    <div class="pass">
+      <label for="pasw">Contraseña</label>
+      <input type="text" class="password" formControlName="pasw" id="pasw" name="pasw">
+    </div>
+    <button type="submit" class="ingresar" [disabled]="!form.valid"> Ingresar </button>
+  </div>
+</form>
