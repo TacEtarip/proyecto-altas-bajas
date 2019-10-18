@@ -1,13 +1,18 @@
+<<<<<<< HEAD
 import { Injectable } from "@angular/core";
+=======
+import { Injectable } from '@angular/core';
+// import { userInfo } from 'os';
+>>>>>>> 243471c145eb4e305ca9c6f18db5dcbc9e79adfc
 @Injectable({
-  providedIn:'root'
+  providedIn: 'root'
 })
-export class DataUser{
-  usuario={
+export class DataUser {
+  usuario = {
     nombre: null,
     apellidos: null,
     cargo: null,
-    unidad:null,
+    unidad: null,
     tipo_usuario: null,
     codigo: null,
     tipo_solicitud: null,
@@ -15,14 +20,16 @@ export class DataUser{
     servicio_red: null,
     accesos_red: null,
     accesos_sistemas_administrativos: null,
-    accesos_sistemas_negocio:null,
-    accesos_carpeta_compartidas:null,
-    sustento:null,
-    observaciones:null
-  }
-  getUser(){
+    accesos_sistemas_negocio: null,
+    accesos_carpeta_compartidas: null,
+    sustento: null,
+    observaciones: null
+  };
+
+  getUser() {
     return this.usuario;
   }
+
 }
 export interface Usuario{
   cod_trab: number;
