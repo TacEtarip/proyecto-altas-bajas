@@ -1,48 +1,26 @@
-.login{
-  margin: 0 auto;
-  margin-top: 180px;
-  font-size: 3em;
-  width: 600px;
-  height: 450px;
-  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.527);
-  background-color: rgba(141, 195, 33, 0.712);
-  border-radius: 50px;
+.loginCard {
+  width: 400px;
+  margin: 150px auto;
+  vertical-align: baseline;
+
 }
-.user{
+
+
+.card-title {
+  font-size: 36px;
+  margin-left: -16px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.form-container>* {
   width: 100%;
-  margin-bottom: 10px;
-  padding-left: 50px;
-  margin-right: 0;
 }
-.usuario{
-  height: 30px;
-  font-size: 0.5em;
-}
-.password{
-  height: 30px;
-  font-size: 0.5em;
-}
-.pass{
-  width: 100%;
-  margin-bottom: 10px;
-  padding-left: 50px;
-  margin-right: 0;
-}
-h1{
-  font-size: 0.5em;
-  width: 0;
-  margin-right: 170px;
-  display:inline-block ;
-}
-h2{
-  padding-top: 40px;
-  text-align: center;
-}
-.ingresar{
-  margin-top: 30px;
-  margin-left: 240px;
-  font-size: 0.8em;
-  border-radius: 6px;
-  /*background-color: rgb(141, 195, 33);
-  border: 60px none rgb(50, 60, 55);*/
+
+.boton {
+  margin-top: 10px;
 }

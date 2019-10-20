@@ -2,16 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'form-altas-bajas',
+  selector: 'app-form-altas-bajas',
   templateUrl: './form-alta-bajas.component.html',
   styleUrls: ['./form-alta-bajas.component.css']
 })
 
-export class FormAltaBajas implements OnInit {
+export class FormAltaBajasComponent implements OnInit {
   form: FormGroup;
   constructor(private formBuilder: FormBuilder) {
-
   }
+
   ngOnInit() {
     this.form = this.formBuilder.group({
       nombre_usuario: this.formBuilder.control('', Validators.compose([
@@ -71,7 +71,7 @@ export class FormAltaBajas implements OnInit {
       observaciones_detalles: this.formBuilder.control('')
     });
   }
-  public onSubmit(user) {
+  public onSubmit(user: any) {
     console.log(user);
   }
 }

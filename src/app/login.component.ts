@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder,FormControl,FormGroup,Validators } from "@angular/forms";
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,21 +7,22 @@ import { FormBuilder,FormControl,FormGroup,Validators } from "@angular/forms";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  form:FormGroup;
-  constructor(private formBuilder:FormBuilder){
+  form: FormGroup;
+  hide = true;
+  constructor(private formBuilder: FormBuilder) {
 
   }
   ngOnInit() {
     this.form = this.formBuilder.group({
-      user:this.formBuilder.control('', Validators.compose([
+      user: this.formBuilder.control('', Validators.compose([
         Validators.required,
       ])),
-      pasw:this.formBuilder.control('', Validators.compose([
+      pasw: this.formBuilder.control('', Validators.compose([
         Validators.required,
       ]))
     });
   }
-  public onSubmit(credenciales){
+  public onSubmit(credenciales) {
     console.log(credenciales);
   }
 }
