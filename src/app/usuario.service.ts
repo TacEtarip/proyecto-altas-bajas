@@ -1,35 +1,19 @@
-<<<<<<< HEAD
 import { Injectable } from "@angular/core";
-=======
-import { Injectable } from '@angular/core';
-// import { userInfo } from 'os';
->>>>>>> 243471c145eb4e305ca9c6f18db5dcbc9e79adfc
+import { HttpClient } from "@angular/common/http";
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class DataUser {
-  usuario = {
-    nombre: null,
-    apellidos: null,
-    cargo: null,
-    unidad: null,
-    tipo_usuario: null,
-    codigo: null,
-    tipo_solicitud: null,
-    motivo_solicitud: null,
-    servicio_red: null,
-    accesos_red: null,
-    accesos_sistemas_administrativos: null,
-    accesos_sistemas_negocio: null,
-    accesos_carpeta_compartidas: null,
-    sustento: null,
-    observaciones: null
-  };
-
-  getUser() {
+export class DataUserService {
+  /*getUser() {
     return this.usuario;
-  }
+  }*/
+  constructor(private http:HttpClient){
 
+  }
+  getUser():Observable<object[]>{
+    return this.http.get<Usuario[]>("http://localhost:7651/FormularioAccesos");
+  }
 }
 export interface Usuario{
   cod_trab: number;
