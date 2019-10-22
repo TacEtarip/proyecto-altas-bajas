@@ -26,3 +26,13 @@
   border-bottom: 1px solid hsl(0, 0%, 90%);
   box-shadow: 0px 1.75px 1.75px rgb(238, 238, 238);
 }
+
+.main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boton_agregar {
+  flex: 0 0 1560px;
+}

@@ -1,3 +1,6 @@
+<!-- Usando angular material para crear los estilos visita la pagina de angular materials
+  https://material.angular.io/components/categories para obtener mas información sobre como funciona cada mat
+de ahí solo he reeemplazado la form de login que ya habias creado, solo le he agregado nuevos errores en el ts-->
 <mat-card class="loginCard">
   <mat-card-header class="card-header">
     <mat-card-title class="card-title">Iniciar Sesión</mat-card-title>
@@ -5,17 +8,25 @@
   <mat-card-content>
     <form class="form-container" [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
       <mat-form-field>
-        <input class=" input" formControlName="user" matInput placeholder="Ingresa tu usuario">
+        <input class=" input" formControlName="user" matInput placeholder="Ingresa tu usuario" maxlength="8">
+        <!--Errores nuevos se mostrara un mensaje si se dan estos errores-->
+        <mat-error *ngIf="form.get('user').hasError('pattern') || !form.get('user').hasError('minLength')">
+          Ingresse su <strong>DNI</strong></mat-error>
       </mat-form-field>
       <mat-form-field>
         <input class="input" formControlName="pasw" matInput placeholder="Ingresa tu contraseña"
           [type]="hide ? 'password' : 'text'">
+        <!--Errores nuevos se mostrara un mensaje si se dan estos errores-->
+        <mat-error *ngIf="!form.get('user').hasError('minLength')">
+          Debe tener por lo menos 4 caracteres </mat-error>
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
           [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
       </mat-form-field>
-      <button class="boton" mat-flat-button color="primary" [disabled]="!form.valid">Ingresar</button>
+      <!--REDIRECCIONA A EL LINK-->
+      <button routerLink="/formularios-lista" class="boton" mat-flat-button color="primary"
+        [disabled]="!form.valid">Ingresar</button>
     </form>
   </mat-card-content>
 </mat-card>

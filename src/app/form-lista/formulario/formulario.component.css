@@ -1,0 +1,27 @@
+.contenido {
+  display: flex;
+  margin-top: 16px;
+}
+
+p {
+  flex: 1 1 0px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.fix-margin {
+  margin-left: -16px;
+}
+
+.nombre-trabajador {
+  margin-left: -16px;
+  color: #3545AF;
+}
+
+b {
+  color: #F44336;
+}
+
+.ver_mas {
+  margin-left: auto;
+}

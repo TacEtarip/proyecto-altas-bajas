@@ -16,6 +16,9 @@ export class DataUserService {
   }
 }
 export interface Usuario {
+
+  // por motivos de prueba he cambiado una que otra variable
+  id: number;
   cod_trab: number;
   nom_trab: string;
   ape_trab: string;
@@ -30,4 +33,5 @@ export interface Usuario {
   jefe_trab: string;
   tije_trab: string;
   acc_sir: boolean;
+  tipo_form: string;
 }

@@ -1,7 +1,19 @@
-<h1> {{formulario.nom_trab}}</h1>
-<h2> cargo {{formulario.cargo}} </h2>
-<h3> unidad: {{formulario.unidad}} </h3>
-<h4> tipo de usuario: {{formulario.tipo_usuario}} </h4>
-<h5> tipo de solicitud: {{formulario.tipo_solicitud}} </h5>
-<h6> estado: {{formulario.estado}} </h6>
-<a href="">Mostrar más</a>
+<!-- INTERIOR DE LA CARTILLA USANDO ANGULAR MATERIALS-->
+<mat-card-header>
+  <mat-card-title class="nombre-trabajador">{{formulario.nom_trab}}</mat-card-title>
+  <mat-card-subtitle class="fix-margin">FORMULARIO DE {{formulario.tipo_form}} COD: {{formulario.id}}
+  </mat-card-subtitle>
+  <button mat-fab color="accent" class="ver_mas">+</button>
+</mat-card-header>
+<mat-divider [inset]="true"></mat-divider>
+
+
+<mat-card-content class="contenido">
+  <p> <b>Tipo de cargo:</b> {{formulario.cargo}} </p>
+  <p> <b>Area de trabajo:</b> {{formulario.nom_area}} </p>
+  <p> <b>Tipo de usuario:</b> {{formulario.tipo_usuario}} </p>
+  <p> <b>Tipo de solicitud:</b> {{formulario.tipo_solicitud}} </p>
+  <p> <b>Estado:</b> {{formulario.estado}} </p>
+</mat-card-content>
+<!--<button mat-raised-button color="warn">Accent</button>
+<a href="">Mostrar más</a>-->

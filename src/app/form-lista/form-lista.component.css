@@ -1,0 +1,17 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  flex-wrap: wrap;
+}
+
+
+.main_card {
+  flex: 0 1 1520px;
+  margin: 25px auto;
+}
+
+.boton_agregar {
+  flex: 0 1 1560px;
+}

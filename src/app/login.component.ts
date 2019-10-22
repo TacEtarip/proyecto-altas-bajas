@@ -16,9 +16,13 @@ export class LoginComponent implements OnInit {
     this.form = this.formBuilder.group({
       user: this.formBuilder.control('', Validators.compose([
         Validators.required,
+        // sole permite numeros y un numero minimo de 8 digitos
+        Validators.pattern(/^\d+$/),
+        Validators.minLength(8)
       ])),
       pasw: this.formBuilder.control('', Validators.compose([
         Validators.required,
+        Validators.minLength(4)
       ]))
     });
   }

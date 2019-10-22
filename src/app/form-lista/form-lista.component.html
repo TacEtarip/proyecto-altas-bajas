@@ -1,3 +1,7 @@
-<div>
-  <app-formulario *ngFor="let formulario of (cartilla$ | async)" [formulario]="formulario" ></app-formulario>
+<!--SE CREARA UNA CARTILLA POR CADA FORMULARIO RECIBIDO-->
+<mat-card class="main_card" *ngFor="let formulario of (cartilla$ | async)">
+  <app-formulario [formulario]="formulario"></app-formulario>
+</mat-card>
+<div class="boton_agregar">
+  <a mat-stroked-button color="accent" routerLink=".">Generar nuevo formulario</a>
 </div>
