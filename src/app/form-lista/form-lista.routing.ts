@@ -1,10 +1,13 @@
 import { Routes, RouterModule } from '@angular/router';
-import { FormularioComponent } from "./formulario/formulario.component";
-import { FormListaComponent } from "./form-lista.component";
+import { FormListaComponent } from './form-lista.component';
+import { FormAltaBajasComponent } from './form-atla-bajas.component';
+import { FormularioCompletoComponent } from './formulario-completo.component';
 
-const formlistRoutes: Routes=[
-  { path: '', component:FormListaComponent },
-  { path: 'NuevoFormulario', component:FormularioComponent }
+const formlistRoutes: Routes = [
+  { path: '', component: FormListaComponent },
+  { path: 'NuevoFormulario', component: FormAltaBajasComponent },
+  { path: ':codigo-form', component: FormularioCompletoComponent },
+
 ];
 
-export const formlistRouting= RouterModule.forChild(formlistRoutes);
+export const formlistRouting = RouterModule.forChild(formlistRoutes);

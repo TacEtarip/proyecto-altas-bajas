@@ -3,7 +3,9 @@
   <mat-card-title class="nombre-trabajador">{{formulario.nom_trab}}</mat-card-title>
   <mat-card-subtitle class="fix-margin">FORMULARIO DE {{formulario.tipo_form}} COD: {{formulario.id}}
   </mat-card-subtitle>
-  <button mat-fab color="accent" class="ver_mas">+</button>
+  <!--tambien puedes hacerlo asi
+  <button mat-fab color="accent" class="ver_mas" (click)="mostrarFormularioCompleto(formulario.id)">+</button>-->
+  <button mat-fab color="accent" class="ver_mas" (click)="mostrarFormularioCompleto()">+</button>
 </mat-card-header>
 <mat-divider [inset]="true"></mat-divider>
 

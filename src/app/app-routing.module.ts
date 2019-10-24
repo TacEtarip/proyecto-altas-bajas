@@ -6,7 +6,7 @@ import { FormListaComponent } from './form-lista/form-lista.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent }, // localhost:4200/login mostrara el componente login
   /* path: 'formularios-lista', component: FormListaComponent },*/ // localhost:4200/formularios-lista mostrara el lista de form
-  { path: 'formularios-lista', loadChildren:() => import('./form-lista/form-lista.module').then(a => a.FormListModule) },
+  { path: 'formularios-lista', loadChildren: () => import('./form-lista/form-lista.module').then(a => a.FormListModule) },
   { path: '', pathMatch: 'full', redirectTo: 'login' } // redirecciona localhost:4200 a localhost:4200/login
 ];
 

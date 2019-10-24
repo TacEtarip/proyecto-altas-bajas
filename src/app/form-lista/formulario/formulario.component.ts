@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Input, Output, EventEmitter } from "@angular/core";
+import { Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-formulario',
@@ -8,10 +8,15 @@ import { Input, Output, EventEmitter } from "@angular/core";
 })
 export class FormularioComponent implements OnInit {
   @Input() formulario;
+  @Output() irAformularioCompleto = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  mostrarFormularioCompleto() {
+    this.irAformularioCompleto.emit(this.formulario.id);
   }
 
 }

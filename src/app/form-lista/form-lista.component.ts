@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Usuario, DataUserService } from '../usuario.service';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-lista',
@@ -12,7 +13,7 @@ export class FormListaComponent implements OnInit, OnDestroy {
 
   cartilla$: BehaviorSubject<object[]> = new BehaviorSubject<object[]>(null);
   unsubscribe$: Subject<boolean> = new Subject<boolean>();
-  constructor(private dataUserService: DataUserService) { }
+  constructor(private dataUserService: DataUserService, private router: Router) { }
 
   ngOnInit() {
     this.dataUserService.getUser()
@@ -25,5 +26,9 @@ export class FormListaComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.unsubscribe$.next(true);
     this.unsubscribe$.unsubscribe();
+  }
+
+  irAformularioCompleto(codigo) {
+    this.router.navigate(['/formularios-lista', codigo]);
   }
 }
