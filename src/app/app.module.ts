@@ -10,17 +10,13 @@ import { appRoutes } from './app-routing.module'; // importando un el router
 import { AppComponent } from './app.component';
 import { FormAltaBajasComponent } from './form-atla-bajas.component';
 import { LoginComponent } from './login.component';
-import { FormListaComponent } from './form-lista/form-lista.component';
-import { FormularioComponent } from './form-lista/formulario/formulario.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormAltaBajasComponent,
-    LoginComponent,
-    FormListaComponent,
-    FormularioComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
