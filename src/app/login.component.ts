@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,9 +10,10 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class LoginComponent implements OnInit {
   form: FormGroup;
   hide = true;
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private auth: AuthService) { }
 
-  }
   ngOnInit() {
     this.form = this.formBuilder.group({
       user: this.formBuilder.control('', Validators.compose([
@@ -27,6 +29,13 @@ export class LoginComponent implements OnInit {
     });
   }
   public onSubmit(credenciales) {
-    console.log(credenciales);
+    // delete credenciales.pasw; elimina un parametro de la variable
+    this.auth.register(credenciales).subscribe(
+      res => { console.log(res); }
+    );
+    // console.log(credenciales);
   }
 }
+
+
+
