@@ -9,34 +9,45 @@ import { Observable, of } from 'rxjs';
 export class AuthService {
 
   private readonly TOKEN_JWT = 'Token_JWT';
+  private readonly USUARIO_DNI = 'Usuario_DNI';
 
   private logedInUser = null;
 
   private BASE_URL = 'http://localhost:7651/auth';
 
   constructor(private http: HttpClient) { }
+  /*
+    register(user): Observable<boolean> {
 
-  register(user): Observable<boolean> {
+      /*return this.http.post<Token>('http://localhost:7651/auth/register', user)
+        .pipe(map((res: Token) => {
+          return res.token;
+        }))
+        .subscribe(
+          (res) => {
+            localStorage.setItem('token', res);
+          }
+        );
+    }*/
 
-    /*return this.http.post<Token>('http://localhost:7651/auth/register', user)
-      .pipe(map((res: Token) => {
-        return res.token;
-      }))
-      .subscribe(
-        (res) => {
-          localStorage.setItem('token', res);
-        }
-      );
-  }*/
+  /* this.http.post<Token>('http://localhost:7651/auth/register', user)
+     .pipe()
+     .subscribe(
+       (res: Token) => {
+         localStorage.setItem('token', res.token);
+       }
+     );
 
-    /* this.http.post<Token>('http://localhost:7651/auth/register', user)
-       .pipe()
-       .subscribe(
-         (res: Token) => {
-           localStorage.setItem('token', res.token);
-         }
-       );
-       */
+
+  return this.http.post<Token>('http://localhost:7651/auth/register', user)
+    .pipe(
+      tap((res: Token) => this.doLoginUser(user.user, res.token)),
+      mapTo(true),
+      catchError(this.handleError)
+    );
+}*/
+
+  login(user): Observable<boolean> {
 
     return this.http.post<Token>('http://localhost:7651/auth/register', user)
       .pipe(
@@ -46,18 +57,23 @@ export class AuthService {
       );
   }
 
-  doLoginUser(userDNI, token: string) {
+
+  private doLoginUser(userDNI, token: string) {
     this.logedInUser = userDNI;
-    localStorage.setItem('usuario', userDNI);
+    localStorage.setItem(this.USUARIO_DNI, userDNI);
     this.storeToken(token);
   }
 
-  storeToken(token: string) {
+  private storeToken(token: string) {
     localStorage.setItem(this.TOKEN_JWT, token);
   }
 
   isLogedIn() {
     return !!localStorage.getItem(this.TOKEN_JWT);
+  }
+
+  getLoggedUserDNI() {
+    return localStorage.getItem(this.USUARIO_DNI);
   }
 
   private handleError(error: HttpErrorResponse) {

@@ -12,6 +12,7 @@ export class FormularioCompletoComponent implements OnInit {
     private dataUserService: DataUserService,
     private activatedRoute: ActivatedRoute) { }
 
+
   ngOnInit() {
     this.activatedRoute.paramMap
       .subscribe(paramMap => {
