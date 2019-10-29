@@ -8,16 +8,16 @@ de ahí solo he reeemplazado la form de login que ya habias creado, solo le he a
   <mat-card-content>
     <form class="form-container" [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
       <mat-form-field>
-        <input class=" input" formControlName="user" matInput placeholder="Ingresa tu usuario" maxlength="8">
+        <input class=" input" formControlName="dni" matInput placeholder="Ingresa tu usuario" maxlength="8">
         <!--Errores nuevos se mostrara un mensaje si se dan estos errores-->
-        <mat-error *ngIf="form.get('user').hasError('pattern') || !form.get('user').hasError('minLength')">
+        <mat-error *ngIf="form.get('dni').hasError('pattern') || !form.get('dni').hasError('minLength')">
           Ingresse su <strong>DNI</strong></mat-error>
       </mat-form-field>
       <mat-form-field>
         <input class="input" formControlName="pasw" matInput placeholder="Ingresa tu contraseña"
           [type]="hide ? 'password' : 'text'">
         <!--Errores nuevos se mostrara un mensaje si se dan estos errores-->
-        <mat-error *ngIf="!form.get('user').hasError('minLength')">
+        <mat-error *ngIf="!form.get('pasw').hasError('minLength')">
           Debe tener por lo menos 4 caracteres </mat-error>
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
           [attr.aria-pressed]="hide">

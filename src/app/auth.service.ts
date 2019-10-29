@@ -49,19 +49,25 @@ export class AuthService {
 
   login(user): Observable<boolean> {
 
-    return this.http.post<Token>('http://localhost:7651/auth/register', user)
+    return this.http.post<Token>('http://localhost:7651/auth/login', user)
       .pipe(
-        tap((res: Token) => this.doLoginUser(user.user, res.token)),
-        mapTo(true),
+        tap((res: Token) => this.doLoginUser(res)),
+        map((res: Token) => {
+          return res.succes;
+        }),
         catchError(this.handleError)
       );
   }
 
 
-  private doLoginUser(userDNI, token: string) {
-    this.logedInUser = userDNI;
-    localStorage.setItem(this.USUARIO_DNI, userDNI);
-    this.storeToken(token);
+  private doLoginUser(res: Token) {
+    if (res.succes === true) {
+      localStorage.setItem(this.USUARIO_DNI, res.dni.toString());
+      this.storeToken(res.token);
+    } else {
+      return;
+    }
+
   }
 
   private storeToken(token: string) {
@@ -82,4 +88,4 @@ export class AuthService {
     return of(false);
   }
 }
-export interface Token { token: string; }
+export interface Token { succes: boolean; dni: number; token: string; }

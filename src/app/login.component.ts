@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     console.log(this.auth.isLogedIn());
     this.form = this.formBuilder.group({
-      user: this.formBuilder.control('', Validators.compose([
+      dni: this.formBuilder.control('', Validators.compose([
         Validators.required,
         // sole permite numeros y un numero minimo de 8 digitos
         Validators.pattern(/^\d+$/),
@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
         }
       }
     );
-    // console.log(credenciales);
+    console.log(credenciales);
   }
 
   openErrorMessage() {
