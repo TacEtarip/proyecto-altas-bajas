@@ -62,7 +62,7 @@ export class AuthService {
 
   private doLoginUser(res: Token) {
     if (res.succes === true) {
-      localStorage.setItem(this.USUARIO_DNI, res.dni.toString());
+      localStorage.setItem(this.USUARIO_DNI, res.dni);
       this.storeToken(res.token);
     } else {
       return;
@@ -88,4 +88,4 @@ export class AuthService {
     return of(false);
   }
 }
-export interface Token { succes: boolean; dni: number; token: string; }
+export interface Token { succes: boolean; dni: string; token: string; }
