@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Usuario, DataUserService } from '../usuario.service';
+import { DataUserService } from '../usuario.service';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Router } from '@angular/router';
@@ -16,7 +16,7 @@ export class FormListaComponent implements OnInit, OnDestroy {
   constructor(private dataUserService: DataUserService, private router: Router) { }
 
   ngOnInit() {
-    this.dataUserService.getUser()
+    this.dataUserService.getFormularios()
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((lista: object[]) => {
         console.log(lista);

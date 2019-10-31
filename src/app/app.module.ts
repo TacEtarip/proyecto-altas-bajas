@@ -10,6 +10,7 @@ import { appRoutes } from './app-routing.module'; // importando un el router
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { MessageShowErrorComponent } from './pop-messages/message-show-error.component';
 
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Usuario, DataUserService } from '../usuario.service';
+import { DataUserService } from '../usuario.service';
 import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-formulario-completo',

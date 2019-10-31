@@ -1,6 +1,5 @@
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login.component';
-import { FormListaComponent } from './form-lista/form-lista.component';
 import { LoginGuard } from './guards/login.guard';
 import { FormsGuard } from './guards/forms.guard';
 

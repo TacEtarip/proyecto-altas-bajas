@@ -5,17 +5,17 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DataUserService {
-  /*getUser() {
+  /*getFormularios() {
     return this.usuario;
   }*/
   constructor(private http: HttpClient) {
 
   }
-  getUser(): Observable<object[]> {
-    return this.http.get<Usuario[]>('http://localhost:7651/FormularioAccesos');
+  getFormularios(): Observable<object[]> {
+    return this.http.get<Formulario[]>('http://localhost:7651/FormularioAccesos');
   }
 }
-export interface Usuario {
+export interface Formulario {
 
   // por motivos de prueba he cambiado una que otra variable
   id: number;

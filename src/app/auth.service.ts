@@ -9,6 +9,7 @@ import { Observable, of, throwError } from 'rxjs';
 export class AuthService {
 
   private readonly TOKEN_JWT = 'Token_JWT';
+  private readonly TOKEN_REFRESH = 'Token_REFRESH';
   private readonly USUARIO_DNI = 'Usuario_DNI';
 
   private logedInUser = null;
@@ -16,62 +17,79 @@ export class AuthService {
   private BASE_URL = 'http://localhost:7651/auth';
 
   constructor(private http: HttpClient) { }
-  /*
-    register(user): Observable<boolean> {
-
-      /*return this.http.post<Token>('http://localhost:7651/auth/register', user)
-        .pipe(map((res: Token) => {
-          return res.token;
-        }))
-        .subscribe(
-          (res) => {
-            localStorage.setItem('token', res);
-          }
-        );
-    }*/
-
-  /* this.http.post<Token>('http://localhost:7651/auth/register', user)
-     .pipe()
-     .subscribe(
-       (res: Token) => {
-         localStorage.setItem('token', res.token);
-       }
-     );
-
-
-  return this.http.post<Token>('http://localhost:7651/auth/register', user)
-    .pipe(
-      tap((res: Token) => this.doLoginUser(user.user, res.token)),
-      mapTo(true),
-      catchError(this.handleError)
-    );
-}*/
 
   login(user): Observable<boolean> {
 
     return this.http.post<Token>('http://localhost:7651/auth/login', user)
       .pipe(
         tap((res: Token) => this.doLoginUser(res)),
-        map((res: Token) => {
-          return res.succes;
-        }),
-        catchError(this.handleError)
+        mapTo(true),
+        catchError(error => {
+          console.log(error.status);
+          switch (error.status) {
+            case 0:
+              alert('Error al tratar de conectar al servidor');
+              break;
+            case 700:
+              break;
+            default:
+              alert('Error al tratar de compropar credenciales');
+              break;
+          }
+          return of(false);
+        })
       );
   }
 
+  logOut() {
+    return this.http.post<any>('http://localhost:7651/auth/logout',
+      { refreshToken: this.getRefreshToken }).pipe(
+        tap(() => this.doLogOutUser()),
+        mapTo(true),
+        catchError(error => {
+          alert('hola?');
+          return of(false);
+        })
+      );
+  }
 
+  refreshToken() {
+    return this.http.post<any>('http://localhost:7651/auth/refresh',
+      { refreshToken: this.getRefreshToken }).pipe(
+        tap((res: TokenRefresh) => this.storeNewToken(res.tokenRefreshed))
+      );
+  }
+
+  storeNewToken(tokenRefreshed: string) {
+    localStorage.setItem(this.TOKEN_JWT, tokenRefreshed);
+  }
+
+  private doLogOutUser() {
+    this.getLoggedUserDNI = null;
+    localStorage.removeItem(this.USUARIO_DNI);
+    this.removeTokens();
+  }
+  private removeTokens() {
+    localStorage.removeItem(this.TOKEN_JWT);
+    localStorage.removeItem(this.TOKEN_REFRESH);
+  }
   private doLoginUser(res: Token) {
     if (res.succes === true) {
       localStorage.setItem(this.USUARIO_DNI, res.dni);
-      this.storeToken(res.token);
+      this.logedInUser = res.dni;
+      this.storeToken(res.token, res.refreshToken);
     } else {
       return;
     }
-
   }
 
-  private storeToken(token: string) {
+  private storeToken(token: string, refreshToken: string) {
     localStorage.setItem(this.TOKEN_JWT, token);
+    localStorage.setItem(this.TOKEN_REFRESH, refreshToken);
+  }
+
+  private getRefreshToken() {
+    return localStorage.getItem(this.TOKEN_REFRESH);
   }
 
   isLogedIn() {
@@ -79,7 +97,7 @@ export class AuthService {
   }
 
   getLoggedUserDNI() {
-    return localStorage.getItem(this.USUARIO_DNI);
+    return this.logedInUser;
   }
 
   private handleError(error: HttpErrorResponse) {
@@ -88,4 +106,5 @@ export class AuthService {
     return of(false);
   }
 }
-export interface Token { succes: boolean; dni: string; token: string; }
+interface Token { succes: boolean; dni: string; token: string; refreshToken: string; }
+interface TokenRefresh { tokenRefreshed: string; }
