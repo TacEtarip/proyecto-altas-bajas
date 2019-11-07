@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { map, mapTo, catchError, tap } from 'rxjs/operators';
 import { Observable, of, throwError } from 'rxjs';
+import { debug } from 'util';
 
 @Injectable({
   providedIn: 'root'
@@ -43,7 +44,7 @@ export class AuthService {
 
   logOut() {
     return this.http.post<any>('http://localhost:7651/auth/logout',
-      { refreshToken: this.getRefreshToken }).pipe(
+      { refreshToken: this.getRefreshToken() }).pipe(
         tap(() => this.doLogOutUser()),
         mapTo(true),
         catchError(error => {
@@ -54,8 +55,11 @@ export class AuthService {
   }
 
   refreshToken() {
+    console.log('1');
+    const x = { refreshToken: this.getRefreshToken() };
+    console.log(x);
     return this.http.post<any>('http://localhost:7651/auth/refresh',
-      { refreshToken: this.getRefreshToken }).pipe(
+      x).pipe(
         tap((res: TokenRefresh) => this.storeNewToken(res.tokenRefreshed))
       );
   }
@@ -90,6 +94,12 @@ export class AuthService {
 
   private getRefreshToken() {
     return localStorage.getItem(this.TOKEN_REFRESH);
+  }
+
+  getJwtToken() {
+
+    return localStorage.getItem(this.TOKEN_JWT);
+
   }
 
   isLogedIn() {

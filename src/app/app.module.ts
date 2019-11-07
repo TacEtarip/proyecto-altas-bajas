@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // importando un segundo modulo que solo contiene angular material
 import { AppMaterialModule } from './app-material.module';
@@ -12,6 +12,8 @@ import { LoginComponent } from './login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MessageShowErrorComponent } from './pop-messages/message-show-error.component';
+
+import { TokenInterceptor } from './interceptor/token.interceptor';
 
 
 @NgModule({
@@ -29,7 +31,13 @@ import { MessageShowErrorComponent } from './pop-messages/message-show-error.com
     AppMaterialModule
   ],
   entryComponents: [MessageShowErrorComponent],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

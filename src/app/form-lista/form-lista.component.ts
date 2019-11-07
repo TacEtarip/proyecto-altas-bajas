@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DataUserService } from '../usuario.service';
-import { BehaviorSubject, Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { BehaviorSubject, Subject, empty, interval } from 'rxjs';
+import { takeUntil, mergeMap, startWith, delay } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 @Component({
@@ -23,6 +23,13 @@ export class FormListaComponent implements OnInit, OnDestroy {
         this.cartilla$.next(lista);
       });
   }
+
+  cartillaMergeMap() {
+    return this.cartilla$.pipe(mergeMap((x: any[]) => {
+      return interval(1000).pipe(startWith(x[0].id));
+    }));
+  }
+
   ngOnDestroy() {
     this.unsubscribe$.next(true);
     this.unsubscribe$.unsubscribe();

@@ -71,7 +71,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatPaginatorModule,
   ],
   exports: [
-    CommonModule,
     MatCheckboxModule,
     MatButtonModule,
     MatInputModule,
