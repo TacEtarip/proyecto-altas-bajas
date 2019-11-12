@@ -181,4 +181,6 @@ source$
   // custom compare for name
   .pipe(distinctUntilChanged((prev, curr) => prev.name === curr.name))
   // output: { name: 'Brian }, { name: 'Joe' }, { name: 'Sue' }
-  .subscribe(console.log);*/
+  .subscribe(console.log);
+
+//.then(expresion) realiza una expresion*/
